@@ -1,30 +1,35 @@
 ---
 ---
 
-<section class="flex flex-wrap justify-center items-center gap-8 lg:gap-16 py-16 px-4 md:px-8 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]">
-  <div class="will-animate flex flex-col items-center gap-1">
-    <span class="font-display text-3xl md:text-4xl text-[var(--accent-primary)]">±1cm</span>
-    <span class="text-xs text-[var(--text-muted)] uppercase tracking-widest">RTK Accuracy</span>
-  </div>
+<section class="relative py-16 px-4 md:px-8 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)] overflow-hidden">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-r from-[var(--brand-magenta)]/5 via-[var(--brand-purple)]/5 to-[var(--brand-blue)]/5"></div>
 
-  <div class="hidden lg:block w-px h-10 bg-[var(--border-subtle)]"></div>
+  <div class="relative max-w-[1400px] mx-auto flex flex-wrap justify-center items-center gap-8 lg:gap-16">
+    <div class="will-animate flex flex-col items-center gap-2">
+      <span class="font-display text-4xl md:text-5xl stat-number">±1cm</span>
+      <span class="text-xs text-[var(--text-muted)] uppercase tracking-widest">RTK Accuracy</span>
+    </div>
 
-  <div class="will-animate flex flex-col items-center gap-1">
-    <span class="font-display text-3xl md:text-4xl text-[var(--accent-primary)]">24/7</span>
-    <span class="text-xs text-[var(--text-muted)] uppercase tracking-widest">Expert Support</span>
-  </div>
+    <div class="hidden lg:block w-px h-12 bg-gradient-to-b from-transparent via-[var(--border-medium)] to-transparent"></div>
 
-  <div class="hidden lg:block w-px h-10 bg-[var(--border-subtle)]"></div>
+    <div class="will-animate flex flex-col items-center gap-2">
+      <span class="font-display text-4xl md:text-5xl stat-number">24/7</span>
+      <span class="text-xs text-[var(--text-muted)] uppercase tracking-widest">Expert Support</span>
+    </div>
 
-  <div class="will-animate flex flex-col items-center gap-1">
-    <span class="font-display text-3xl md:text-4xl text-[var(--accent-primary)]">100+</span>
-    <span class="text-xs text-[var(--text-muted)] uppercase tracking-widest">Farms Equipped</span>
-  </div>
+    <div class="hidden lg:block w-px h-12 bg-gradient-to-b from-transparent via-[var(--border-medium)] to-transparent"></div>
 
-  <div class="hidden lg:block w-px h-10 bg-[var(--border-subtle)]"></div>
+    <div class="will-animate flex flex-col items-center gap-2">
+      <span class="font-display text-4xl md:text-5xl stat-number">100+</span>
+      <span class="text-xs text-[var(--text-muted)] uppercase tracking-widest">Farms Equipped</span>
+    </div>
 
-  <div class="will-animate flex flex-col items-center gap-1">
-    <span class="font-display text-3xl md:text-4xl text-[var(--accent-primary)]">FJD</span>
-    <span class="text-xs text-[var(--text-muted)] uppercase tracking-widest">Authorized Dealer</span>
+    <div class="hidden lg:block w-px h-12 bg-gradient-to-b from-transparent via-[var(--border-medium)] to-transparent"></div>
+
+    <div class="will-animate flex flex-col items-center gap-2">
+      <span class="font-display text-4xl md:text-5xl stat-number">FJD</span>
+      <span class="text-xs text-[var(--text-muted)] uppercase tracking-widest">Authorized Dealer</span>
+    </div>
   </div>
 </section>

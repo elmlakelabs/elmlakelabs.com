@@ -6,14 +6,17 @@ interface Props {
 const { currentPath = '/' } = Astro.props;
 ---
 
-<header class="header fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300" style="background: linear-gradient(to bottom, var(--bg-primary), transparent);">
+<header class="header fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300">
   <nav class="max-w-[1400px] mx-auto flex items-center justify-between gap-8">
-    <a href="/" class="logo flex items-center gap-2 font-display text-xl text-[var(--text-primary)]">
-      <span class="text-[var(--accent-primary)] text-2xl">◈</span>
-      <span>Elm Lake Labs</span>
+    <a href="/" class="logo flex items-center gap-3 group">
+      <img
+        src="/images/logo-white.png"
+        alt="Elm Lake Labs"
+        class="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+      />
     </a>
 
-    <div class="nav-links hidden md:flex gap-8">
+    <div class="nav-links hidden md:flex items-center gap-8">
       <a href="#solutions" class="nav-link text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors relative">
         Solutions
       </a>
@@ -28,7 +31,7 @@ const { currentPath = '/' } = Astro.props;
       </a>
     </div>
 
-    <a href="https://store.elmlakelabs.com" class="nav-cta hidden md:flex items-center gap-1.5 px-4 py-2 bg-[var(--bg-card)] border border-[var(--border-medium)] rounded-md text-sm text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)] hover:border-[var(--accent-primary)] transition-all" target="_blank">
+    <a href="https://store.elmlakelabs.com" class="nav-cta hidden md:flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium text-white transition-all duration-300" style="background: var(--gradient-brand); background-size: 200% auto;" target="_blank">
       <span>Shop</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M7 17L17 7M17 7H7M17 7V17"/>
@@ -36,27 +39,37 @@ const { currentPath = '/' } = Astro.props;
     </a>
 
     <button class="mobile-toggle md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
-      <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-transform"></span>
-      <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-transform"></span>
+      <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-transform origin-center"></span>
+      <span class="block w-6 h-0.5 bg-[var(--text-primary)] transition-transform origin-center"></span>
     </button>
   </nav>
 </header>
 
 <!-- Mobile Menu -->
-<div class="mobile-menu hidden fixed top-[72px] left-0 right-0 bg-[var(--bg-secondary)] border-b border-[var(--border-subtle)] z-40 transform -translate-y-full opacity-0 transition-all duration-300">
+<div class="mobile-menu hidden fixed top-[72px] left-0 right-0 bg-[var(--bg-secondary)]/95 backdrop-blur-xl border-b border-[var(--border-subtle)] z-40 transform -translate-y-full opacity-0 transition-all duration-300">
   <div class="flex flex-col p-8">
-    <a href="#solutions" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)]">Solutions</a>
-    <a href="#products" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)]">Products</a>
-    <a href="#software" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)]">Software</a>
-    <a href="#about" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)]">About</a>
-    <a href="https://store.elmlakelabs.com" class="mt-4 text-[var(--accent-primary)]" target="_blank">Shop →</a>
+    <a href="#solutions" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)] transition-colors">Solutions</a>
+    <a href="#products" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)] transition-colors">Products</a>
+    <a href="#software" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)] transition-colors">Software</a>
+    <a href="#about" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)] transition-colors">About</a>
+    <a href="https://store.elmlakelabs.com" class="mt-6 inline-flex items-center gap-2 text-[var(--brand-magenta)] font-medium" target="_blank">
+      Shop Now
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+      </svg>
+    </a>
   </div>
 </div>
 
 <style>
+  .header {
+    background: linear-gradient(to bottom, var(--bg-primary), transparent);
+  }
+
   .header.scrolled {
-    background: rgba(10, 15, 13, 0.95) !important;
-    backdrop-filter: blur(10px);
+    background: rgba(12, 10, 20, 0.9) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .nav-link::after {
@@ -65,13 +78,19 @@ const { currentPath = '/' } = Astro.props;
     bottom: -4px;
     left: 0;
     width: 0;
-    height: 1px;
-    background: var(--accent-primary);
-    transition: width 0.25s ease;
+    height: 2px;
+    background: var(--gradient-brand);
+    transition: width 0.3s ease;
   }
 
   .nav-link:hover::after {
     width: 100%;
+  }
+
+  .nav-cta:hover {
+    background-position: right center;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(233, 30, 140, 0.25);
   }
 
   .mobile-menu.active {

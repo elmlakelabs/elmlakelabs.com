@@ -1,17 +1,35 @@
 ---
 const values = [
-  { title: 'Innovation', description: 'Cutting-edge technology backed by rigorous testing' },
-  { title: 'Support', description: 'Expert guidance from equipment selection to optimization' },
-  { title: 'Excellence', description: 'Products and service that exceed expectations' }
+  {
+    title: 'Innovation',
+    description: 'Cutting-edge technology backed by rigorous testing',
+    color: 'var(--brand-magenta)'
+  },
+  {
+    title: 'Support',
+    description: 'Expert guidance from equipment selection to optimization',
+    color: 'var(--brand-purple)'
+  },
+  {
+    title: 'Excellence',
+    description: 'Products and service that exceed expectations',
+    color: 'var(--brand-blue)'
+  }
 ];
 ---
 
-<section id="about" class="py-24 px-4 md:px-8 bg-[var(--bg-secondary)]">
-  <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
+<section id="about" class="py-24 px-4 md:px-8 bg-[var(--bg-secondary)] relative overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 molecular-bg opacity-20"></div>
+
+  <div class="relative max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-20 items-center">
     <!-- Text -->
     <div class="will-animate">
       <span class="section-tag">About Us</span>
-      <h2 class="section-title text-left mb-8">Transforming Agriculture Through Innovation</h2>
+      <h2 class="section-title text-left mb-8">
+        Transforming Agriculture<br />
+        Through <span class="gradient-text">Innovation</span>
+      </h2>
 
       <p class="text-lg text-[var(--text-primary)] leading-relaxed mb-4">
         Elm Lake Labs is dedicated to helping farmers and agricultural businesses unlock
@@ -27,26 +45,51 @@ const values = [
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {values.map(value => (
-          <div class="p-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-lg">
-            <div class="text-[var(--accent-primary)] text-xl mb-2">◈</div>
-            <h4 class="font-body font-medium text-sm mb-1">{value.title}</h4>
-            <p class="text-xs text-[var(--text-muted)] leading-relaxed">{value.description}</p>
+          <div class="p-5 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-xl group hover:border-transparent transition-all duration-300 relative overflow-hidden">
+            <!-- Gradient border on hover -->
+            <div class="absolute inset-0 rounded-xl p-px opacity-0 group-hover:opacity-100 transition-opacity" style={`background: linear-gradient(135deg, ${value.color}, transparent);`}></div>
+
+            <div class="relative">
+              <div class="w-8 h-8 rounded-lg mb-3 flex items-center justify-center" style={`background: ${value.color}20;`}>
+                <div class="w-2 h-2 rounded-full" style={`background: ${value.color};`}></div>
+              </div>
+              <h4 class="font-body font-medium text-sm mb-1">{value.title}</h4>
+              <p class="text-xs text-[var(--text-muted)] leading-relaxed">{value.description}</p>
+            </div>
           </div>
         ))}
       </div>
     </div>
 
-    <!-- Image placeholder -->
+    <!-- Image -->
     <div class="will-animate flex justify-center lg:order-first">
-      <div class="w-full max-w-[400px] aspect-square bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-tertiary)] border border-[var(--border-subtle)] rounded-2xl flex items-center justify-center overflow-hidden">
-        <svg class="w-[60%] text-[var(--accent-primary)] opacity-40" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="0.5">
-          <path d="M20 180 Q100 100 180 180" stroke-width="1"/>
-          <path d="M40 180 Q100 120 160 180"/>
-          <path d="M60 180 Q100 140 140 180"/>
-          <circle cx="100" cy="60" r="30"/>
-          <path d="M100 90v30"/>
-          <path d="M85 105h30"/>
-        </svg>
+      <div class="relative w-full max-w-[500px]">
+        <!-- Main image -->
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src="/images/hero-field.jpg"
+            alt="Precision agriculture in action"
+            class="w-full h-auto"
+          />
+          <!-- Gradient overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)]/60 via-transparent to-transparent"></div>
+        </div>
+
+        <!-- Stats overlay card -->
+        <div class="absolute -bottom-6 -right-6 md:bottom-4 md:right-4 p-5 bg-[var(--bg-card)]/95 backdrop-blur-sm border border-[var(--border-subtle)] rounded-xl shadow-xl">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--brand-magenta)] to-[var(--brand-purple)] flex items-center justify-center">
+              <svg class="text-white" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <div>
+              <span class="block font-display text-2xl gradient-text">100+</span>
+              <span class="text-xs text-[var(--text-muted)]">Farms Equipped</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

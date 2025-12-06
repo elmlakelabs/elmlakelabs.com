@@ -1,36 +1,66 @@
 ---
 ---
 
-<section class="py-24 px-4 md:px-8 text-center relative">
-  <!-- Top line -->
-  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-transparent to-[var(--border-medium)]"></div>
+<section class="py-24 px-4 md:px-8 text-center relative overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 molecular-bg opacity-30"></div>
 
-  <div class="max-w-[600px] mx-auto will-animate">
-    <h2 class="heading-md mb-4">Ready to Transform Your Operation?</h2>
-    <p class="text-[var(--text-secondary)] mb-10">Get in touch with our precision agriculture specialists</p>
+  <!-- Top gradient line -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-[var(--brand-purple)] to-transparent opacity-50"></div>
+
+  <div class="relative max-w-[700px] mx-auto will-animate">
+    <span class="section-tag justify-center">Get In Touch</span>
+    <h2 class="heading-md mb-4">
+      Ready to Transform<br />
+      <span class="gradient-text">Your Operation?</span>
+    </h2>
+    <p class="text-[var(--text-secondary)] mb-12 max-w-md mx-auto">
+      Get in touch with our precision agriculture specialists and discover how we can help you farm smarter.
+    </p>
 
     <div class="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
-      <a href="mailto:info@elmlakelabs.com" class="flex items-center justify-center gap-3 px-6 py-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-lg text-[var(--text-secondary)] hover:border-[var(--accent-primary)] hover:text-[var(--text-primary)] hover:-translate-y-0.5 transition-all">
-        <svg class="text-[var(--accent-primary)]" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <path d="M22 6l-10 7L2 6"/>
-        </svg>
-        <span>info@elmlakelabs.com</span>
+      <a href="mailto:info@elmlakelabs.com" class="group flex items-center justify-center gap-3 px-6 py-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-300 relative overflow-hidden">
+        <!-- Hover gradient -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, var(--brand-magenta)10, var(--brand-purple)05);"></div>
+
+        <div class="relative flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--brand-magenta)20;">
+            <svg class="text-[var(--brand-magenta)]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M22 6l-10 7L2 6"/>
+            </svg>
+          </div>
+          <span class="font-medium">info@elmlakelabs.com</span>
+        </div>
       </a>
 
-      <a href="https://www.facebook.com/elmlakelabs" target="_blank" class="flex items-center justify-center gap-3 px-6 py-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-lg text-[var(--text-secondary)] hover:border-[var(--accent-primary)] hover:text-[var(--text-primary)] hover:-translate-y-0.5 transition-all">
-        <svg class="text-[var(--accent-primary)]" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-        </svg>
-        <span>Facebook</span>
+      <a href="https://www.facebook.com/elmlakelabs" target="_blank" class="group flex items-center justify-center gap-3 px-6 py-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-300 relative overflow-hidden">
+        <!-- Hover gradient -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, var(--brand-purple)10, var(--brand-indigo)05);"></div>
+
+        <div class="relative flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--brand-purple)20;">
+            <svg class="text-[var(--brand-purple)]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </div>
+          <span class="font-medium">Facebook</span>
+        </div>
       </a>
 
-      <a href="https://www.youtube.com/@ElmLakeLabs" target="_blank" class="flex items-center justify-center gap-3 px-6 py-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-lg text-[var(--text-secondary)] hover:border-[var(--accent-primary)] hover:text-[var(--text-primary)] hover:-translate-y-0.5 transition-all">
-        <svg class="text-[var(--accent-primary)]" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/>
-          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
-        </svg>
-        <span>YouTube</span>
+      <a href="https://www.youtube.com/@ElmLakeLabs" target="_blank" class="group flex items-center justify-center gap-3 px-6 py-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-xl text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-300 relative overflow-hidden">
+        <!-- Hover gradient -->
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity" style="background: linear-gradient(135deg, var(--brand-blue)10, var(--brand-cyan)05);"></div>
+
+        <div class="relative flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--brand-blue)20;">
+            <svg class="text-[var(--brand-blue)]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/>
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/>
+            </svg>
+          </div>
+          <span class="font-medium">YouTube</span>
+        </div>
       </a>
     </div>
   </div>
