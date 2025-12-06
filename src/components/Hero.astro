@@ -1,7 +1,7 @@
 ---
 ---
 
-<section class="relative min-h-screen flex items-center pt-20 pb-16 px-4 md:px-8 overflow-hidden">
+<section class="relative min-h-screen flex items-center pt-24 pb-20 px-4 md:px-8 lg:px-12 overflow-hidden">
   <!-- Background image with overlay -->
   <div class="absolute inset-0">
     <img
@@ -9,81 +9,153 @@
       alt="Cranberry harvest"
       class="w-full h-full object-cover"
     />
-    <div class="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/90 to-[var(--bg-primary)]/60"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)]/80"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[var(--bg-primary)] via-[var(--bg-primary)]/95 to-[var(--bg-primary)]/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-primary)] via-transparent to-[var(--bg-primary)]/60"></div>
   </div>
 
-  <!-- Molecular pattern overlay -->
-  <div class="absolute inset-0 molecular-bg opacity-50"></div>
-
-  <!-- Animated gradient orbs -->
-  <div class="absolute top-1/4 -left-32 w-96 h-96 bg-[var(--brand-magenta)] rounded-full blur-[150px] opacity-20 animate-float"></div>
-  <div class="absolute bottom-1/4 right-0 w-80 h-80 bg-[var(--brand-purple)] rounded-full blur-[120px] opacity-15 animate-float" style="animation-delay: -3s;"></div>
-  <div class="absolute top-1/2 right-1/4 w-64 h-64 bg-[var(--brand-blue)] rounded-full blur-[100px] opacity-10 animate-float" style="animation-delay: -1.5s;"></div>
+  <!-- Floating orb -->
+  <div class="absolute top-1/3 right-[15%] w-[500px] h-[500px] bg-[var(--brand-purple)] rounded-full blur-[180px] opacity-[0.08] animate-float"></div>
 
   <div class="relative z-10 max-w-[1400px] mx-auto w-full">
-    <div class="max-w-[680px]">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-3 px-4 py-2 bg-[var(--bg-card)]/80 backdrop-blur-sm border border-[var(--border-subtle)] rounded-full text-xs text-[var(--text-secondary)] mb-8 animate-fade-in-up">
-        <span class="relative flex h-2.5 w-2.5">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--brand-magenta)] opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--brand-magenta)]"></span>
-        </span>
-        <span>Precision Agriculture Technology</span>
-      </div>
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-center">
 
-      <!-- Headline -->
-      <h1 class="heading-xl mb-6">
-        <span class="block text-[var(--text-secondary)] animate-fade-in-up delay-100">The Future of</span>
-        <span class="block animate-fade-in-up delay-200">Farming is</span>
-        <span class="block animate-fade-in-up delay-300">
-          <span class="gradient-text gradient-text-animated">Precise</span>
-        </span>
-      </h1>
+      <!-- Left: Main content -->
+      <div class="max-w-[720px]">
+        <!-- Single badge -->
+        <div class="inline-flex items-center gap-3 px-5 py-2.5 bg-[var(--bg-card)]/60 backdrop-blur-sm border border-[var(--border-medium)] rounded-full text-sm text-[var(--text-primary)] mb-10 animate-fade-in-up">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--brand-magenta)] opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-[var(--brand-magenta)]"></span>
+          </span>
+          <span>Precision Agriculture Technology</span>
+        </div>
 
-      <!-- Subheadline -->
-      <p class="max-w-[520px] text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed mb-10 animate-fade-in-up delay-400">
-        State-of-the-art GPS guidance, auto-steer systems, and farm management
-        software that help you unlock your full potential.
-      </p>
+        <!-- Headline -->
+        <h1 class="mb-8">
+          <span class="block font-display text-[clamp(3.5rem,10vw,7rem)] font-medium leading-[0.95] tracking-tight text-[var(--text-primary)] animate-fade-in-up">
+            The Future of
+          </span>
+          <span class="block font-display text-[clamp(3.5rem,10vw,7rem)] font-medium leading-[0.95] tracking-tight text-[var(--text-primary)] animate-fade-in-up delay-100">
+            Farming is
+          </span>
+          <span class="block font-display text-[clamp(3.5rem,10vw,7rem)] font-medium leading-[0.95] tracking-tight animate-fade-in-up delay-200">
+            <span class="gradient-text gradient-text-animated">Precise</span>
+          </span>
+        </h1>
 
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-500">
-        <a href="#products" class="btn btn-primary">
-          Explore Products
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-        <a href="#about" class="btn btn-secondary">Learn More</a>
-      </div>
+        <!-- Subheadline -->
+        <p class="max-w-[540px] text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed mb-10 animate-fade-in-up delay-300">
+          State-of-the-art GPS guidance, auto-steer systems, and farm management
+          software that help you unlock your full potential.
+        </p>
 
-      <!-- FJD Partner Badge -->
-      <div class="flex flex-col gap-6 mt-12 pt-8 border-t border-[var(--border-subtle)] animate-fade-in-up delay-600">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-          <span class="text-xs text-[var(--brand-magenta)] uppercase tracking-[0.15em] font-semibold">Official Authorized Dealer</span>
-          <div class="flex items-center justify-center px-6 py-4 bg-white rounded-xl shadow-lg">
-            <img
-              src="/images/fjd/fjd-logo.jpg"
-              alt="FJDynamics"
-              class="h-14 md:h-20 w-auto"
-            />
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-14 animate-fade-in-up delay-400">
+          <a href="#products" class="btn btn-primary text-base px-8 py-4">
+            Explore Products
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#about" class="btn btn-secondary text-base px-8 py-4">Learn More</a>
+        </div>
+
+        <!-- Trust indicators row -->
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-4 pt-8 border-t border-[var(--border-subtle)] animate-fade-in-up delay-500">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--brand-purple)]/10">
+              <svg class="w-5 h-5 text-[var(--brand-purple)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-medium text-[var(--text-primary)]">100+ Farms</div>
+              <div class="text-xs text-[var(--text-muted)]">Equipped</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--brand-blue)]/10">
+              <svg class="w-5 h-5 text-[var(--brand-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-medium text-[var(--text-primary)]">24/7</div>
+              <div class="text-xs text-[var(--text-muted)]">Expert Support</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-[var(--brand-magenta)]/10">
+              <svg class="w-5 h-5 text-[var(--brand-magenta)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-medium text-[var(--text-primary)]">±1in</div>
+              <div class="text-xs text-[var(--text-muted)]">RTK Accuracy</div>
+            </div>
           </div>
         </div>
-        <div class="flex flex-wrap items-center gap-6 text-sm text-[var(--text-muted)]">
-          <div class="flex items-center gap-2">
-            <svg class="text-[var(--brand-purple)]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 6v6l4 2"/>
-            </svg>
-            <span>24/7 Support</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <svg class="text-[var(--brand-blue)]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
-            <span>100+ Farms Equipped</span>
+      </div>
+
+      <!-- Right: FJD Partner Card with ONE large logo -->
+      <div class="hidden lg:block animate-fade-in-up delay-500">
+        <div class="group relative">
+          <!-- Glow effect -->
+          <div class="absolute -inset-6 bg-gradient-to-br from-[#F5B800]/25 via-[#F5B800]/10 to-transparent rounded-3xl blur-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          <div class="relative w-[340px] p-10 bg-[var(--bg-card)]/70 backdrop-blur-md border border-[var(--border-subtle)] group-hover:border-[#F5B800]/40 rounded-3xl transition-all duration-300">
+            <!-- Top accent line -->
+            <div class="absolute top-0 left-10 right-10 h-px bg-gradient-to-r from-transparent via-[#F5B800]/60 to-transparent"></div>
+
+            <!-- Single LARGE horizontal logo -->
+            <div class="flex flex-col items-center text-center">
+              <div class="relative mb-8">
+                <div class="absolute -inset-6 bg-[#F5B800]/15 rounded-3xl blur-2xl"></div>
+                <img
+                  src="/images/fjd/logo-horizontal-white.png"
+                  alt="FJDynamics"
+                  class="relative h-16 w-auto"
+                />
+              </div>
+
+              <!-- Badge -->
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#F5B800]/10 border border-[#F5B800]/25 rounded-full mb-8">
+                <div class="w-2 h-2 bg-[#F5B800] rounded-full animate-pulse"></div>
+                <span class="text-xs text-[#F5B800] uppercase tracking-[0.15em] font-semibold">Authorized Dealer</span>
+              </div>
+
+              <!-- Features list -->
+              <div class="w-full space-y-4 text-sm">
+                <div class="flex items-center gap-3 p-3 bg-[var(--bg-primary)]/40 rounded-xl text-[var(--text-secondary)]">
+                  <svg class="w-5 h-5 text-[#F5B800] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Factory Certified</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-[var(--bg-primary)]/40 rounded-xl text-[var(--text-secondary)]">
+                  <svg class="w-5 h-5 text-[#F5B800] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Full Warranty Support</span>
+                </div>
+                <div class="flex items-center gap-3 p-3 bg-[var(--bg-primary)]/40 rounded-xl text-[var(--text-secondary)]">
+                  <svg class="w-5 h-5 text-[#F5B800] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span>Expert Local Service</span>
+                </div>
+              </div>
+
+              <!-- CTA -->
+              <a href="#products" class="mt-8 w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-[#F5B800] hover:bg-[#E5A800] rounded-xl text-sm text-[var(--bg-primary)] font-semibold transition-all duration-300 group/btn">
+                <span>View Products</span>
+                <svg class="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -91,10 +163,8 @@
   </div>
 
   <!-- Scroll indicator -->
-  <div class="hidden lg:flex absolute bottom-12 left-8 items-center gap-4 text-xs text-[var(--text-muted)] uppercase tracking-widest">
-    <span>Scroll</span>
-    <div class="w-16 h-px bg-[var(--border-medium)] relative overflow-hidden">
-      <div class="absolute top-0 left-0 w-8 h-full bg-gradient-to-r from-[var(--brand-magenta)] to-[var(--brand-purple)]" style="animation: scrollLine 2s ease-in-out infinite;"></div>
-    </div>
+  <div class="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-xs text-[var(--text-muted)]">
+    <span class="uppercase tracking-[0.2em]">Scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-[var(--brand-magenta)] to-transparent"></div>
   </div>
 </section>

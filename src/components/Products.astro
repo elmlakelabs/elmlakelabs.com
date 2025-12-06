@@ -41,48 +41,84 @@ const products = [
 
   <div class="relative max-w-[1400px] mx-auto">
     <!-- FJD Partner Banner - Large & Prominent -->
-    <div class="will-animate mb-20 p-10 md:p-14 bg-gradient-to-br from-[var(--bg-card)] via-[var(--bg-tertiary)] to-[var(--bg-card)] border border-[var(--border-subtle)] rounded-3xl relative overflow-hidden">
-      <!-- Decorative gradient -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[var(--brand-magenta)]/5 via-transparent to-[var(--brand-blue)]/5"></div>
+    <div class="will-animate mb-20 relative group">
+      <!-- Outer glow effect -->
+      <div class="absolute -inset-1 bg-gradient-to-r from-[#F5B800]/20 via-[#F5B800]/5 to-[#F5B800]/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-      <div class="relative flex flex-col items-center text-center">
-        <span class="text-xs text-[var(--brand-magenta)] uppercase tracking-[0.2em] font-semibold mb-6">Official Authorized Dealer</span>
+      <div class="relative p-10 md:p-14 bg-[var(--bg-card)] border border-[var(--border-subtle)] group-hover:border-[#F5B800]/20 rounded-3xl overflow-hidden transition-colors duration-500">
+        <!-- Diagonal accent stripe -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#F5B800]/8 via-[#F5B800]/3 to-transparent -translate-y-1/2 translate-x-1/4"></div>
 
-        <div class="flex items-center justify-center p-8 md:p-12 bg-white rounded-2xl shadow-xl mb-10">
-          <img
-            src="/images/fjd/fjd-logo.jpg"
-            alt="FJDynamics"
-            class="h-24 md:h-36 lg:h-44 w-auto"
-          />
-        </div>
+        <!-- Grid pattern overlay -->
+        <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#F5B800 1px, transparent 1px), linear-gradient(90deg, #F5B800 1px, transparent 1px); background-size: 40px 40px;"></div>
 
-        <h3 class="font-display text-2xl md:text-3xl mb-4">
-          Premium <span class="gradient-text">Precision Agriculture</span> Technology
-        </h3>
-        <p class="text-[var(--text-secondary)] max-w-xl mb-8">
-          As an authorized FJDynamics dealer, we bring you industry-leading auto-steer systems,
-          land leveling solutions, and RTK technology backed by expert local support.
-        </p>
+        <div class="relative grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-10 lg:gap-16 items-center">
+          <!-- Left: Logo lockup -->
+          <div class="flex flex-col items-center lg:items-start">
+            <!-- FJD Shield logomark -->
+            <div class="relative mb-6">
+              <div class="absolute -inset-4 bg-[#F5B800]/10 rounded-2xl blur-2xl"></div>
+              <div class="relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-gradient-to-br from-[var(--bg-tertiary)] to-[var(--bg-primary)] rounded-2xl border border-[#F5B800]/30 shadow-2xl shadow-[#F5B800]/10">
+                <img
+                  src="/images/fjd/logomark-yellow.png"
+                  alt="FJDynamics"
+                  class="w-14 md:w-20 h-auto"
+                />
+              </div>
+            </div>
 
-        <div class="flex flex-wrap justify-center gap-6 text-sm text-[var(--text-muted)]">
-          <div class="flex items-center gap-2">
-            <svg class="text-[var(--brand-magenta)]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
-            </svg>
-            <span>Factory Certified</span>
+            <!-- Logo wordmark -->
+            <img
+              src="/images/fjd/logo-horizontal-white.png"
+              alt="FJDynamics"
+              class="h-8 md:h-10 w-auto opacity-90"
+            />
+
+            <!-- Authorized badge -->
+            <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#F5B800]/10 border border-[#F5B800]/20 rounded-full">
+              <div class="w-2 h-2 bg-[#F5B800] rounded-full animate-pulse"></div>
+              <span class="text-xs text-[#F5B800] uppercase tracking-[0.15em] font-semibold">Authorized Dealer</span>
+            </div>
           </div>
-          <div class="flex items-center gap-2">
-            <svg class="text-[var(--brand-purple)]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            <span>Full Warranty Support</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <svg class="text-[var(--brand-blue)]" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-            <span>Expert Local Service</span>
+
+          <!-- Right: Content -->
+          <div class="text-center lg:text-left">
+            <h3 class="font-display text-2xl md:text-3xl lg:text-4xl mb-4">
+              Premium <span class="text-[#F5B800]">Precision Agriculture</span> Technology
+            </h3>
+            <p class="text-[var(--text-secondary)] max-w-xl mb-8 leading-relaxed">
+              As an authorized FJDynamics dealer, we bring you industry-leading auto-steer systems,
+              land leveling solutions, and RTK technology backed by expert local support.
+            </p>
+
+            <!-- Feature grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="flex items-center gap-3 p-4 bg-[var(--bg-primary)]/50 rounded-xl border border-[var(--border-subtle)]">
+                <div class="w-10 h-10 flex items-center justify-center bg-[#F5B800]/10 rounded-lg">
+                  <svg class="text-[#F5B800]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-[var(--text-primary)]">Factory Certified</span>
+              </div>
+              <div class="flex items-center gap-3 p-4 bg-[var(--bg-primary)]/50 rounded-xl border border-[var(--border-subtle)]">
+                <div class="w-10 h-10 flex items-center justify-center bg-[#F5B800]/10 rounded-lg">
+                  <svg class="text-[#F5B800]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-[var(--text-primary)]">Full Warranty</span>
+              </div>
+              <div class="flex items-center gap-3 p-4 bg-[var(--bg-primary)]/50 rounded-xl border border-[var(--border-subtle)]">
+                <div class="w-10 h-10 flex items-center justify-center bg-[#F5B800]/10 rounded-lg">
+                  <svg class="text-[#F5B800]" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <span class="text-sm text-[var(--text-primary)]">Local Support</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
