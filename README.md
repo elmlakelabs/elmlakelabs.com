@@ -4,7 +4,7 @@ Marketing and brand website for Elm Lake Labs, a precision agriculture technolog
 
 ## Overview
 
-This is a static website built to replace the current Shopify-hosted site at elmlakelabs.com. The design focuses on showcasing Elm Lake Labs' precision agriculture solutions, products, and Blossom farm management software.
+This site replaces the current Shopify-hosted site at elmlakelabs.com. The design showcases Elm Lake Labs' precision agriculture solutions, products, and Blossom farm management software.
 
 ### Architecture
 
@@ -15,9 +15,9 @@ This separation allows full design control over the marketing site while maintai
 
 ## Tech Stack
 
-- **HTML5** - Semantic markup
-- **CSS3** - Custom properties, Grid, Flexbox, animations
-- **Vanilla JavaScript** - No framework dependencies
+- **Astro 5.x** - Static site generator
+- **Tailwind CSS 4.x** - Utility-first styling
+- **TypeScript** - Strict mode enabled
 - **Google Fonts** - Instrument Serif + DM Sans
 
 ### Design Philosophy
@@ -32,47 +32,78 @@ This separation allows full design control over the marketing site while maintai
 
 ## Development
 
-### Local Development
-
-Simply open `index.html` in a browser, or use a local server:
+### Setup
 
 ```bash
-# Python
-python -m http.server 8000
+npm install
+```
 
-# Node (npx)
-npx serve
+### Local Development
 
-# PHP
-php -S localhost:8000
+```bash
+npm run dev
+```
+
+Opens at http://localhost:4321
+
+### Build
+
+```bash
+npm run build
+```
+
+Output in `dist/`
+
+### Preview Production Build
+
+```bash
+npm run preview
 ```
 
 ### File Structure
 
 ```
 elmlakelabs.com/
-├── index.html      # Main page
-├── styles.css      # All styles
-├── main.js         # JavaScript functionality
-├── README.md       # This file
-└── TODO.md         # Future improvements
+├── src/
+│   ├── components/     # Astro components
+│   │   ├── Header.astro
+│   │   ├── Footer.astro
+│   │   ├── Hero.astro
+│   │   ├── StatsBar.astro
+│   │   ├── Solutions.astro
+│   │   ├── Products.astro
+│   │   ├── Software.astro
+│   │   ├── About.astro
+│   │   └── Contact.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
+├── public/             # Static assets
+├── astro.config.mjs
+├── package.json
+├── tsconfig.json
+├── README.md
+└── TODO.md
 ```
 
 ## Deployment
 
-This site is designed to be deployed to any static hosting service:
+Deploy to Cloudflare Pages:
 
-- **GitHub Pages** - Enable in repository settings
-- **Netlify** - Connect repository for automatic deploys
-- **Vercel** - Similar to Netlify
-- **Cloudflare Pages** - Free, fast CDN
+1. Connect repository to Cloudflare Pages
+2. Build command: `npm run build`
+3. Output directory: `dist`
+4. Point elmlakelabs.com DNS to Cloudflare
 
 ### Domain Configuration
 
-1. Deploy site to chosen host
-2. Point elmlakelabs.com DNS to the host
+1. Deploy site to Cloudflare Pages
+2. Add custom domain elmlakelabs.com
 3. Configure store.elmlakelabs.com subdomain in Shopify
-4. Update all "Shop" links to point to store.elmlakelabs.com
+4. Update Shopify DNS (CNAME to shops.myshopify.com)
 
 ## Content Sections
 
@@ -84,14 +115,6 @@ This site is designed to be deployed to any static hosting service:
 6. **About** - Company mission and values
 7. **Contact** - Email and social links
 8. **Footer** - Navigation and legal links
-
-## Browser Support
-
-Tested and optimized for:
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
-- Mobile Safari/Chrome
 
 ## License
 

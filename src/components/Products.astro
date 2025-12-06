@@ -1,0 +1,134 @@
+---
+const featuredProduct = {
+  badge: 'Best Seller',
+  category: 'Auto-Steer System',
+  name: 'FJD AT2',
+  description: 'Advanced auto-steering with centimeter-level accuracy. Compatible with most tractors and implements. Easy installation and intuitive operation.',
+  specs: ['±2.5cm Pass-to-Pass', 'RTK/CORS Ready', 'Universal Mount'],
+  price: '$7,199',
+  icon: `<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1">
+    <circle cx="60" cy="60" r="50"/>
+    <circle cx="60" cy="60" r="30"/>
+    <circle cx="60" cy="60" r="10"/>
+    <path d="M60 10v20M60 90v20M10 60h20M90 60h20"/>
+    <path d="M25 25l15 15M80 80l15 15M25 95l15-15M80 40l15-15"/>
+  </svg>`
+};
+
+const products = [
+  {
+    category: 'Land Leveling',
+    name: 'FJD AL01 3D System',
+    description: 'Precision 3D land leveling for perfect field grades.',
+    price: '$6,799',
+    icon: `<svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1">
+      <rect x="15" y="25" width="50" height="35" rx="3"/>
+      <path d="M25 45h30M25 52h20"/>
+      <circle cx="40" cy="15" r="8"/>
+      <path d="M40 7v-3M40 23v3"/>
+    </svg>`
+  },
+  {
+    category: 'RTK Rover',
+    name: 'FJD Trion V1t',
+    description: 'Professional RTK rover for surveying and mapping.',
+    price: '$4,249',
+    icon: `<svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1">
+      <path d="M40 10v15"/>
+      <circle cx="40" cy="40" r="25"/>
+      <circle cx="40" cy="40" r="15"/>
+      <path d="M40 55v15"/>
+    </svg>`
+  },
+  {
+    category: 'Dozer System',
+    name: 'FJD H39 3D',
+    description: 'Complete 3D machine control for dozers.',
+    price: 'From $29,999',
+    icon: `<svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1">
+      <path d="M20 60L40 20l20 40H20z"/>
+      <path d="M30 50h20"/>
+      <circle cx="40" cy="35" r="5"/>
+    </svg>`
+  }
+];
+---
+
+<section id="products" class="py-24 px-4 md:px-8 bg-[var(--bg-secondary)]">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="text-center mb-12">
+      <span class="section-tag">Featured Products</span>
+      <h2 class="section-title">Precision Equipment</h2>
+      <p class="mt-4 text-[var(--text-secondary)] max-w-[500px] mx-auto">
+        Authorized FJD dealer offering cutting-edge agricultural technology
+      </p>
+    </div>
+
+    <!-- Featured Product -->
+    <div class="will-animate grid grid-cols-1 lg:grid-cols-2 gap-12 p-8 lg:p-12 bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-tertiary)] border border-[var(--border-subtle)] rounded-2xl mb-6 relative overflow-hidden">
+      <span class="absolute top-6 left-6 px-3 py-1.5 bg-[var(--accent-gold)] text-[var(--bg-primary)] text-xs font-semibold uppercase tracking-wider rounded">
+        {featuredProduct.badge}
+      </span>
+
+      <div class="flex items-center justify-center bg-[rgba(125,216,125,0.03)] rounded-xl aspect-square">
+        <div class="w-[70%] text-[var(--accent-primary)] opacity-60" set:html={featuredProduct.icon}></div>
+      </div>
+
+      <div class="flex flex-col justify-center">
+        <span class="text-xs text-[var(--accent-secondary)] uppercase tracking-widest mb-2">{featuredProduct.category}</span>
+        <h3 class="font-display text-4xl mb-4">{featuredProduct.name}</h3>
+        <p class="text-[var(--text-secondary)] leading-relaxed mb-6">{featuredProduct.description}</p>
+
+        <div class="flex flex-wrap gap-2 mb-8">
+          {featuredProduct.specs.map(spec => (
+            <span class="px-3 py-1.5 bg-[var(--bg-primary)] border border-[var(--border-subtle)] rounded text-xs text-[var(--text-secondary)]">
+              {spec}
+            </span>
+          ))}
+        </div>
+
+        <div class="flex items-center justify-between gap-4">
+          <span class="font-display text-2xl">{featuredProduct.price}</span>
+          <a href="https://store.elmlakelabs.com" class="btn btn-primary btn-sm" target="_blank">
+            Shop Now
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {products.map((product, index) => (
+        <div class="will-animate card p-6" style={`transition-delay: ${(index + 1) * 100}ms`}>
+          <div class="flex items-center justify-center bg-[rgba(125,216,125,0.03)] rounded-xl aspect-[4/3] mb-4">
+            <div class="w-[50%] text-[var(--accent-primary)] opacity-60" set:html={product.icon}></div>
+          </div>
+
+          <span class="text-xs text-[var(--accent-secondary)] uppercase tracking-widest">{product.category}</span>
+          <h3 class="font-display text-xl mt-1 mb-2">{product.name}</h3>
+          <p class="text-sm text-[var(--text-secondary)] mb-4">{product.description}</p>
+
+          <div class="flex items-center justify-between">
+            <span class="font-display text-lg">{product.price}</span>
+            <a href="https://store.elmlakelabs.com" class="text-sm text-[var(--accent-primary)] hover:text-[var(--accent-secondary)] transition-colors" target="_blank">
+              View →
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <a href="https://store.elmlakelabs.com" class="btn btn-outline" target="_blank">
+        Browse All Products
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

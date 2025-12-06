@@ -1,0 +1,53 @@
+---
+const values = [
+  { title: 'Innovation', description: 'Cutting-edge technology backed by rigorous testing' },
+  { title: 'Support', description: 'Expert guidance from equipment selection to optimization' },
+  { title: 'Excellence', description: 'Products and service that exceed expectations' }
+];
+---
+
+<section id="about" class="py-24 px-4 md:px-8 bg-[var(--bg-secondary)]">
+  <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-16 items-center">
+    <!-- Text -->
+    <div class="will-animate">
+      <span class="section-tag">About Us</span>
+      <h2 class="section-title text-left mb-8">Transforming Agriculture Through Innovation</h2>
+
+      <p class="text-lg text-[var(--text-primary)] leading-relaxed mb-4">
+        Elm Lake Labs is dedicated to helping farmers and agricultural businesses unlock
+        their full potential through state-of-the-art precision technology.
+      </p>
+
+      <p class="text-[var(--text-secondary)] leading-relaxed mb-10">
+        From small family farms to large commercial operations, we provide the tools,
+        expertise, and support you need to farm smarter. Our team of precision agriculture
+        specialists understands the unique challenges you face and works alongside you to
+        implement solutions that drive real results.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {values.map(value => (
+          <div class="p-4 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-lg">
+            <div class="text-[var(--accent-primary)] text-xl mb-2">◈</div>
+            <h4 class="font-body font-medium text-sm mb-1">{value.title}</h4>
+            <p class="text-xs text-[var(--text-muted)] leading-relaxed">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Image placeholder -->
+    <div class="will-animate flex justify-center lg:order-first">
+      <div class="w-full max-w-[400px] aspect-square bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-tertiary)] border border-[var(--border-subtle)] rounded-2xl flex items-center justify-center overflow-hidden">
+        <svg class="w-[60%] text-[var(--accent-primary)] opacity-40" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="0.5">
+          <path d="M20 180 Q100 100 180 180" stroke-width="1"/>
+          <path d="M40 180 Q100 120 160 180"/>
+          <path d="M60 180 Q100 140 140 180"/>
+          <circle cx="100" cy="60" r="30"/>
+          <path d="M100 90v30"/>
+          <path d="M85 105h30"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>

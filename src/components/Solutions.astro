@@ -1,0 +1,89 @@
+---
+const solutions = [
+  {
+    number: '01',
+    title: 'GPS Guidance & Auto-Steer',
+    description: 'Sub-inch precision guidance systems that reduce overlap, save fuel, and let you work in any conditions—day or night, dust or fog.',
+    link: '#products',
+    linkText: 'View Systems →',
+    featured: true,
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="24" cy="24" r="20"/>
+      <circle cx="24" cy="24" r="8"/>
+      <path d="M24 4v8M24 36v8M4 24h8M36 24h8"/>
+    </svg>`
+  },
+  {
+    number: '02',
+    title: 'Land Leveling',
+    description: '3D laser and GPS-based leveling systems for perfect field grades, improved drainage, and maximum water efficiency.',
+    link: '#products',
+    linkText: 'Explore →',
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+      <rect x="8" y="8" width="32" height="32" rx="4"/>
+      <path d="M8 16h32M16 16v24M32 16v24"/>
+      <circle cx="24" cy="28" r="4"/>
+    </svg>`
+  },
+  {
+    number: '03',
+    title: 'Farm Management Software',
+    description: 'Blossom: comprehensive field records, nutrient tracking, pest management, and harvest data—all in one powerful platform.',
+    link: '#software',
+    linkText: 'Learn More →',
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M8 40V20l16-12 16 12v20"/>
+      <path d="M18 40V28h12v12"/>
+      <path d="M4 44h40"/>
+    </svg>`
+  },
+  {
+    number: '04',
+    title: 'Expert Consultation',
+    description: 'Personalized guidance from precision ag specialists who understand your operation and help you maximize your technology investment.',
+    link: '#about',
+    linkText: 'Contact Us →',
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M24 4l4 8h8l-6 6 2 8-8-4-8 4 2-8-6-6h8z"/>
+      <circle cx="24" cy="36" r="8"/>
+      <path d="M24 32v8M20 36h8"/>
+    </svg>`
+  }
+];
+---
+
+<section id="solutions" class="py-24 px-4 md:px-8">
+  <div class="max-w-[1400px] mx-auto">
+    <div class="text-center mb-16">
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">Precision Solutions for<br class="hidden sm:block" />Modern Agriculture</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {solutions.map((solution, index) => (
+        <div
+          class:list={[
+            'will-animate card p-6 relative overflow-hidden group',
+            solution.featured && 'lg:col-span-2 bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-tertiary)]'
+          ]}
+          style={`transition-delay: ${index * 100}ms`}
+        >
+          <!-- Top accent line -->
+          <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+          <span class="text-xs text-[var(--text-muted)] mb-4 block">{solution.number}</span>
+
+          <div class="w-12 h-12 mb-4 text-[var(--accent-primary)]" set:html={solution.icon}></div>
+
+          <h3 class="font-body font-medium text-lg text-[var(--text-primary)] mb-2">{solution.title}</h3>
+
+          <p class="text-sm text-[var(--text-secondary)] leading-relaxed mb-4">{solution.description}</p>
+
+          <a href={solution.link} class="text-sm text-[var(--accent-primary)] hover:text-[var(--accent-secondary)] transition-colors">
+            {solution.linkText}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
