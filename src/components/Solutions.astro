@@ -30,19 +30,6 @@ const solutions = [
   },
   {
     number: '03',
-    title: 'Farm Management Software',
-    description: 'Blossom: comprehensive field records, nutrient tracking, pest management, and harvest data—all in one powerful platform.',
-    link: '#software',
-    linkText: 'Learn More',
-    color: 'blue',
-    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M8 40V20l16-12 16 12v20"/>
-      <path d="M18 40V28h12v12"/>
-      <path d="M4 44h40"/>
-    </svg>`
-  },
-  {
-    number: '04',
     title: 'Expert Consultation',
     description: 'Personalized guidance from precision ag specialists who understand your operation and help you maximize your technology investment.',
     link: '#about',
@@ -52,6 +39,20 @@ const solutions = [
       <path d="M24 4l4 8h8l-6 6 2 8-8-4-8 4 2-8-6-6h8z"/>
       <circle cx="24" cy="36" r="8"/>
       <path d="M24 32v8M20 36h8"/>
+    </svg>`
+  },
+  {
+    number: '04',
+    title: 'Farm Management Software',
+    description: 'Blossom: comprehensive field records, nutrient tracking, pest management, and harvest data—all in one powerful platform.',
+    link: '#software',
+    linkText: 'Learn More',
+    featured: true,
+    color: 'blue',
+    icon: `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M8 40V20l16-12 16 12v20"/>
+      <path d="M18 40V28h12v12"/>
+      <path d="M4 44h40"/>
     </svg>`
   }
 ];
@@ -68,13 +69,13 @@ const colorMap: Record<string, string> = {
   <!-- Background -->
   <div class="absolute inset-0 molecular-bg opacity-30"></div>
 
-  <div class="relative max-w-[1400px] mx-auto">
+  <div class="relative max-w-[1050px] mx-auto">
     <div class="text-center mb-16">
       <span class="section-tag">What We Do</span>
       <h2 class="section-title">Precision Solutions for <br class="hidden sm:block" />Modern Agriculture</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {solutions.map((solution, index) => (
         <div
           class:list={[
