@@ -1,0 +1,1183 @@
+---
+/**
+ * CONCEPT 3: "AURORA FLOW"
+ * Aesthetic: Organic, flowing, nature-meets-tech
+ * Feel: Calm yet innovative, like Northern Lights over farmland
+ * Typography: Clean rounded sans-serif (Nunito) for approachability
+ * Colors: Uses logo gradient (magenta → purple → blue) as aurora-like flowing accents
+ * Unique element: Flowing gradient waves, soft blurs, organic curves
+ */
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elm Lake Labs | Concept 3 - Aurora Flow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        /* Logo-derived colors */
+        --magenta: #E91E8C;
+        --purple: #9333EA;
+        --blue: #0EA5E9;
+        --cyan: #06B6D4;
+
+        /* Neutral palette */
+        --white: #FFFFFF;
+        --off-white: #F8FAFC;
+        --gray-50: #F1F5F9;
+        --gray-100: #E2E8F0;
+        --gray-400: #94A3B8;
+        --gray-600: #475569;
+        --gray-800: #1E293B;
+        --gray-900: #0F172A;
+
+        --font-main: 'Nunito', sans-serif;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: var(--font-main);
+        background: var(--off-white);
+        color: var(--gray-800);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Aurora background effect */
+      .aurora-bg {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .aurora-bg::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background:
+          radial-gradient(ellipse at 30% 20%, rgba(233, 30, 140, 0.08) 0%, transparent 50%),
+          radial-gradient(ellipse at 70% 60%, rgba(147, 51, 234, 0.06) 0%, transparent 50%),
+          radial-gradient(ellipse at 50% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%);
+        animation: aurora 20s ease-in-out infinite;
+      }
+
+      @keyframes aurora {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        33% { transform: translate(30px, -30px) rotate(2deg); }
+        66% { transform: translate(-20px, 20px) rotate(-2deg); }
+      }
+
+      /* Concept switcher */
+      .concept-nav {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        display: flex;
+        gap: 6px;
+        padding: 8px 12px;
+        background: var(--white);
+        border-radius: 50px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+      .concept-nav a {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        color: var(--gray-400);
+        background: transparent;
+        transition: all 0.3s;
+      }
+      .concept-nav a:hover {
+        color: var(--purple);
+        background: var(--gray-50);
+      }
+      .concept-nav a.active {
+        background: linear-gradient(135deg, var(--magenta), var(--purple));
+        color: var(--white);
+      }
+      .concept-nav a.home {
+        font-size: 16px;
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 20px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(248, 250, 252, 0.8);
+        backdrop-filter: blur(20px);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .logo img {
+        height: 44px;
+        width: auto;
+        filter: brightness(0) saturate(100%);
+      }
+
+      nav {
+        display: flex;
+        gap: 36px;
+      }
+
+      nav a {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--gray-600);
+        text-decoration: none;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--magenta), var(--purple));
+        border-radius: 2px;
+        transition: width 0.3s;
+      }
+
+      nav a:hover {
+        color: var(--gray-900);
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .header-cta {
+        padding: 12px 28px;
+        background: linear-gradient(135deg, var(--magenta), var(--purple), var(--blue));
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s;
+        box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
+      }
+
+      .header-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(147, 51, 234, 0.4);
+      }
+
+      /* Hero */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 140px 80px 80px;
+        position: relative;
+      }
+
+      .hero-content {
+        max-width: 600px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        background: var(--white);
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--purple);
+        margin-bottom: 24px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+
+      .hero-badge-dot {
+        width: 8px;
+        height: 8px;
+        background: linear-gradient(135deg, var(--magenta), var(--purple));
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.2); }
+      }
+
+      .hero-title {
+        font-size: clamp(48px, 6vw, 72px);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        color: var(--gray-900);
+      }
+
+      .hero-title-gradient {
+        background: linear-gradient(135deg, var(--magenta), var(--purple), var(--blue));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-desc {
+        font-size: 18px;
+        color: var(--gray-600);
+        line-height: 1.8;
+        margin-bottom: 40px;
+      }
+
+      .hero-cta-group {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 18px 36px;
+        background: linear-gradient(135deg, var(--magenta), var(--purple));
+        color: white;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s;
+        box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(147, 51, 234, 0.4);
+      }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 18px 36px;
+        background: var(--white);
+        color: var(--gray-800);
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+
+      .btn-secondary:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .hero-visual {
+        position: absolute;
+        right: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45%;
+        max-width: 550px;
+      }
+
+      .hero-image-wrapper {
+        position: relative;
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: 0 40px 100px rgba(147, 51, 234, 0.15);
+      }
+
+      .hero-image-wrapper::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(14, 165, 233, 0.1));
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .hero-image {
+        width: 100%;
+        display: block;
+      }
+
+      .hero-floating-card {
+        position: absolute;
+        background: var(--white);
+        padding: 16px 24px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        animation: float 5s ease-in-out infinite;
+      }
+
+      .hero-floating-card.top {
+        top: -20px;
+        left: -30px;
+      }
+
+      .hero-floating-card.bottom {
+        bottom: 30px;
+        right: -40px;
+        animation-delay: 2.5s;
+      }
+
+      .floating-stat {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .floating-icon {
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, var(--magenta), var(--purple));
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+      }
+
+      .floating-value {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--gray-900);
+      }
+
+      .floating-label {
+        font-size: 12px;
+        color: var(--gray-400);
+        font-weight: 600;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-12px); }
+      }
+
+      /* Stats wave section */
+      .stats-wave {
+        position: relative;
+        background: linear-gradient(135deg, var(--gray-900), #1a1033);
+        padding: 80px;
+        overflow: hidden;
+      }
+
+      .stats-wave::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,100 C300,20 600,80 900,40 C1050,15 1150,50 1200,70 L1200,0 L0,0 Z' fill='%23F8FAFC'/%3E%3C/svg%3E");
+        background-size: cover;
+      }
+
+      .stats-wave::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 C300,80 600,20 900,60 C1050,85 1150,50 1200,30 L1200,100 L0,100 Z' fill='%23F8FAFC'/%3E%3C/svg%3E");
+        background-size: cover;
+      }
+
+      .stats-glow {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.3;
+      }
+
+      .stats-glow.glow-1 {
+        top: -200px;
+        left: 10%;
+        background: var(--magenta);
+      }
+
+      .stats-glow.glow-2 {
+        bottom: -200px;
+        right: 10%;
+        background: var(--blue);
+      }
+
+      .stats-grid {
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+        z-index: 1;
+        padding: 40px 0;
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 56px;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--white), var(--gray-100));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 8px;
+      }
+
+      .stat-label {
+        font-size: 14px;
+        color: var(--gray-400);
+        font-weight: 600;
+      }
+
+      /* Solutions */
+      .solutions {
+        padding: 100px 80px;
+        position: relative;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-tag {
+        display: inline-block;
+        padding: 8px 20px;
+        background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(147, 51, 234, 0.1));
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--purple);
+        margin-bottom: 16px;
+      }
+
+      .section-title {
+        font-size: clamp(36px, 5vw, 48px);
+        font-weight: 800;
+        color: var(--gray-900);
+        line-height: 1.2;
+      }
+
+      .solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .solution-card {
+        padding: 36px 28px;
+        background: var(--white);
+        border-radius: 24px;
+        text-align: center;
+        transition: all 0.4s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .solution-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--magenta), var(--purple), var(--blue));
+        transform: scaleX(0);
+        transition: transform 0.4s;
+      }
+
+      .solution-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(147, 51, 234, 0.12);
+      }
+
+      .solution-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .solution-icon {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 20px;
+        background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(147, 51, 234, 0.1));
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        transition: all 0.4s;
+      }
+
+      .solution-card:hover .solution-icon {
+        background: linear-gradient(135deg, var(--magenta), var(--purple));
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .solution-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 12px;
+      }
+
+      .solution-desc {
+        font-size: 14px;
+        color: var(--gray-600);
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      .solution-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--purple);
+        text-decoration: none;
+        transition: gap 0.3s;
+      }
+
+      .solution-link:hover {
+        gap: 10px;
+        color: var(--magenta);
+      }
+
+      /* Products */
+      .products {
+        padding: 100px 80px;
+        background: var(--white);
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        margin-top: 60px;
+      }
+
+      .product-card {
+        background: var(--off-white);
+        border-radius: 28px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 60px rgba(147, 51, 234, 0.12);
+      }
+
+      .product-image-wrapper {
+        position: relative;
+        padding: 40px;
+        background: linear-gradient(135deg, rgba(233, 30, 140, 0.03), rgba(14, 165, 233, 0.05));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 220px;
+      }
+
+      .product-image {
+        width: 100%;
+        height: 160px;
+        object-fit: contain;
+        transition: transform 0.4s;
+      }
+
+      .product-card:hover .product-image {
+        transform: scale(1.08);
+      }
+
+      .product-content {
+        padding: 28px;
+      }
+
+      .product-category {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--purple);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 8px;
+      }
+
+      .product-name {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--gray-900);
+        margin-bottom: 8px;
+      }
+
+      .product-desc {
+        font-size: 14px;
+        color: var(--gray-600);
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+
+      .product-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+        border-top: 2px solid var(--gray-50);
+      }
+
+      .product-price {
+        font-size: 26px;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--magenta), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .product-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 12px 24px;
+        background: linear-gradient(135deg, var(--magenta), var(--purple));
+        color: white;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s;
+      }
+
+      .product-link:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
+      }
+
+      /* About */
+      .about {
+        padding: 100px 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .about-visual {
+        position: relative;
+      }
+
+      .about-image {
+        width: 100%;
+        border-radius: 32px;
+        box-shadow: 0 30px 80px rgba(147, 51, 234, 0.12);
+      }
+
+      .about-decoration {
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        right: 20px;
+        bottom: 20px;
+        border: 3px solid transparent;
+        border-image: linear-gradient(135deg, var(--magenta), var(--purple), var(--blue)) 1;
+        border-radius: 32px;
+        z-index: -1;
+      }
+
+      .about-content .section-title {
+        text-align: left;
+        margin-bottom: 24px;
+      }
+
+      .about-desc {
+        font-size: 17px;
+        color: var(--gray-600);
+        line-height: 1.9;
+        margin-bottom: 36px;
+      }
+
+      .values-grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .value-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 24px;
+        background: var(--white);
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s;
+      }
+
+      .value-item:hover {
+        transform: translateX(8px);
+        box-shadow: 0 8px 30px rgba(147, 51, 234, 0.1);
+      }
+
+      .value-icon {
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(147, 51, 234, 0.1));
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+      }
+
+      .value-text h4 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--gray-900);
+        margin-bottom: 2px;
+      }
+
+      .value-text p {
+        font-size: 13px;
+        color: var(--gray-600);
+      }
+
+      /* Contact */
+      .contact {
+        padding: 120px 80px;
+        background: linear-gradient(135deg, var(--gray-900), #1a1033);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-glow {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        filter: blur(150px);
+        opacity: 0.2;
+      }
+
+      .contact-glow.left { top: 0; left: -200px; background: var(--magenta); }
+      .contact-glow.right { bottom: 0; right: -200px; background: var(--blue); }
+
+      .contact-content {
+        position: relative;
+        z-index: 1;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-title {
+        font-size: clamp(40px, 5vw, 56px);
+        font-weight: 800;
+        color: var(--white);
+        margin-bottom: 20px;
+      }
+
+      .contact-title span {
+        background: linear-gradient(135deg, var(--magenta), var(--purple), var(--blue));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .contact-desc {
+        font-size: 18px;
+        color: var(--gray-400);
+        line-height: 1.8;
+        margin-bottom: 40px;
+      }
+
+      .contact .btn-primary {
+        background: linear-gradient(135deg, var(--magenta), var(--purple));
+      }
+
+      /* Footer */
+      footer {
+        background: var(--gray-900);
+        padding: 48px 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .footer-logo img {
+        height: 36px;
+        width: auto;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 32px;
+      }
+
+      .footer-links a {
+        font-size: 14px;
+        color: var(--gray-400);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+      }
+
+      .footer-copy {
+        font-size: 13px;
+        color: var(--gray-600);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .hero { flex-direction: column; padding: 140px 40px 60px; }
+        .hero-content { max-width: 100%; text-align: center; }
+        .hero-cta-group { justify-content: center; }
+        .hero-visual { position: relative; width: 100%; right: auto; top: auto; transform: none; margin-top: 40px; max-width: 100%; }
+        .hero-floating-card { display: none; }
+        .stats-wave { padding: 60px 40px; }
+        .stats-grid { flex-wrap: wrap; gap: 32px; }
+        .stat { width: 45%; }
+        .solutions { padding: 60px 40px; }
+        .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+        .products { padding: 60px 40px; }
+        .products-grid { grid-template-columns: 1fr; }
+        .about { grid-template-columns: 1fr; padding: 60px 40px; }
+        .about-visual { order: -1; }
+        header { padding: 16px 24px; }
+        nav { display: none; }
+        .contact { padding: 80px 40px; }
+        footer { flex-direction: column; gap: 24px; text-align: center; padding: 40px; }
+        .footer-links { flex-wrap: wrap; justify-content: center; }
+      }
+
+      @media (max-width: 640px) {
+        .solutions-grid { grid-template-columns: 1fr; }
+        .stat { width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="aurora-bg"></div>
+
+    <!-- Concept Switcher -->
+    <div class="concept-nav">
+      <a href="/" class="home" title="Original">&#8962;</a>
+      <a href="/concept-1" title="Soft Gradient">1</a>
+      <a href="/concept-2" title="Dark Tech">2</a>
+      <a href="/concept-3" class="active" title="Aurora Flow">3</a>
+      <a href="/concept-4" title="Gradient Industrial">4</a>
+      <a href="/concept-5" title="Minimal Luxe">5</a>
+    </div>
+
+    <header>
+      <a href="/" class="logo">
+        <img src="/images/logo-white.png" alt="Elm Lake Labs" />
+      </a>
+      <nav>
+        <a href="#solutions">Solutions</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="https://store.elmlakelabs.com" class="header-cta" target="_blank">Shop Now</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Precision Agriculture Technology
+        </div>
+        <h1 class="hero-title">
+          Farm Smarter with <span class="hero-title-gradient">Precision</span>
+        </h1>
+        <p class="hero-desc">
+          GPS guidance and auto-steer systems that deliver sub-inch accuracy.
+          Save fuel, reduce overlap, and work in any conditions.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#products" class="btn-primary">
+            Explore Products
+            <span>&#8594;</span>
+          </a>
+          <a href="#about" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-wrapper">
+          <img src="/images/hero-field.jpg" alt="Beautiful farm field" class="hero-image" />
+        </div>
+        <div class="hero-floating-card top">
+          <div class="floating-stat">
+            <div class="floating-icon">&#127919;</div>
+            <div>
+              <div class="floating-value">&#177;1"</div>
+              <div class="floating-label">Accuracy</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-floating-card bottom">
+          <div class="floating-stat">
+            <div class="floating-icon">&#128640;</div>
+            <div>
+              <div class="floating-value">100+</div>
+              <div class="floating-label">Farms Equipped</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-wave">
+      <div class="stats-glow glow-1"></div>
+      <div class="stats-glow glow-2"></div>
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Farms Equipped</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">&#177;1"</div>
+          <div class="stat-label">RTK Accuracy</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Expert Support</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">15%</div>
+          <div class="stat-label">Fuel Saved</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions" class="solutions">
+      <div class="section-header">
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-title">Solutions for Modern Farmers</h2>
+      </div>
+
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <div class="solution-icon">&#128752;</div>
+          <h3 class="solution-title">GPS Guidance</h3>
+          <p class="solution-desc">
+            Sub-inch precision for day or night, rain or shine.
+          </p>
+          <a href="#products" class="solution-link">
+            Learn more &#8594;
+          </a>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">&#127971;</div>
+          <h3 class="solution-title">Land Leveling</h3>
+          <p class="solution-desc">
+            Perfect field grades for improved drainage.
+          </p>
+          <a href="#products" class="solution-link">
+            Learn more &#8594;
+          </a>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">&#128100;</div>
+          <h3 class="solution-title">Expert Support</h3>
+          <p class="solution-desc">
+            Personalized guidance for your operation.
+          </p>
+          <a href="#contact" class="solution-link">
+            Get in touch &#8594;
+          </a>
+        </div>
+        <div class="solution-card">
+          <div class="solution-icon">&#128241;</div>
+          <h3 class="solution-title">Farm Software</h3>
+          <p class="solution-desc">
+            Blossom: field records and analytics in one place.
+          </p>
+          <a href="#products" class="solution-link">
+            Learn more &#8594;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="products">
+      <div class="section-header">
+        <span class="section-tag">Our Equipment</span>
+        <h2 class="section-title">Precision Tools for Every Farm</h2>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="/images/products/at2-autosteer.png" alt="FJD AT2" class="product-image" />
+          </div>
+          <div class="product-content">
+            <div class="product-category">Auto-Steer</div>
+            <h3 class="product-name">FJD AT2</h3>
+            <p class="product-desc">Advanced auto-steering with centimeter-level accuracy. Universal mount.</p>
+            <div class="product-footer">
+              <span class="product-price">$7,199</span>
+              <a href="https://store.elmlakelabs.com" class="product-link" target="_blank">
+                Shop &#8594;
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="/images/products/al01-land-leveling.png" alt="FJD AL01" class="product-image" />
+          </div>
+          <div class="product-content">
+            <div class="product-category">Land Leveling</div>
+            <h3 class="product-name">FJD AL01 3D</h3>
+            <p class="product-desc">Precision 3D land leveling for perfect field grades.</p>
+            <div class="product-footer">
+              <span class="product-price">$6,799</span>
+              <a href="https://store.elmlakelabs.com" class="product-link" target="_blank">
+                Shop &#8594;
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image-wrapper">
+            <img src="/images/products/trion-v1t-rover.png" alt="FJD Trion V1t" class="product-image" />
+          </div>
+          <div class="product-content">
+            <div class="product-category">RTK Rover</div>
+            <h3 class="product-name">FJD Trion V1t</h3>
+            <p class="product-desc">Professional RTK rover for surveying and mapping.</p>
+            <div class="product-footer">
+              <span class="product-price">$4,249</span>
+              <a href="https://store.elmlakelabs.com" class="product-link" target="_blank">
+                Shop &#8594;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-visual">
+        <img src="/images/hero-field.jpg" alt="Beautiful farm" class="about-image" />
+      </div>
+      <div class="about-content">
+        <span class="section-tag">About Us</span>
+        <h2 class="section-title">Growing Together</h2>
+        <p class="about-desc">
+          Elm Lake Labs is dedicated to helping farmers unlock their full potential.
+          From small family farms to large operations, we provide the tools, expertise,
+          and support you need to farm smarter.
+        </p>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon">&#9889;</div>
+            <div class="value-text">
+              <h4>Innovation</h4>
+              <p>Cutting-edge tech that actually works</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">&#129309;</div>
+            <div class="value-text">
+              <h4>Support</h4>
+              <p>Expert guidance every step of the way</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">&#11088;</div>
+            <div class="value-text">
+              <h4>Excellence</h4>
+              <p>Products that exceed expectations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="contact-glow left"></div>
+      <div class="contact-glow right"></div>
+      <div class="contact-content">
+        <h2 class="contact-title">
+          Ready to farm <span>smarter?</span>
+        </h2>
+        <p class="contact-desc">
+          Let's chat about how precision ag technology can work for your farm.
+          We're here to help!
+        </p>
+        <a href="mailto:hello@elmlakelabs.com" class="btn-primary">
+          Get in Touch
+          <span>&#8594;</span>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <a href="/" class="footer-logo">
+        <img src="/images/logo-white.png" alt="Elm Lake Labs" />
+      </a>
+      <div class="footer-links">
+        <a href="#solutions">Solutions</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://store.elmlakelabs.com" target="_blank">Shop</a>
+      </div>
+      <span class="footer-copy">&copy; 2024 Elm Lake Labs</span>
+    </footer>
+  </body>
+</html>

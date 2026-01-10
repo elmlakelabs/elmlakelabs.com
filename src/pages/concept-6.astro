@@ -1,0 +1,1218 @@
+---
+/**
+ * CONCEPT 6: "MONOLITHIC BRUTALISM"
+ * Aesthetic: Raw concrete, industrial monumentalism, commanding presence
+ * Feel: Powerful, uncompromising, like massive agricultural machinery
+ * Typography: Tight condensed headings (Bebas Neue) + industrial body (IBM Plex)
+ * Colors: Concrete grays, oxidized metal, warning yellow accents
+ * Unique: Massive typography, stark shadows, brutalist grid
+ */
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elm Lake Labs | Concept 6 - Monolithic Brutalism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --concrete-100: #E8E6E3;
+        --concrete-200: #D4D1CC;
+        --concrete-300: #B8B4AD;
+        --concrete-400: #8A857C;
+        --concrete-500: #5C574F;
+        --concrete-600: #3D3A35;
+        --concrete-700: #2A2825;
+        --concrete-800: #1C1B19;
+        --concrete-900: #0F0E0D;
+
+        --rust: #8B4513;
+        --oxide: #A0522D;
+        --warning: #FFD700;
+        --danger: #DC2626;
+
+        --font-display: 'Bebas Neue', sans-serif;
+        --font-mono: 'IBM Plex Mono', monospace;
+        --font-body: 'IBM Plex Sans', sans-serif;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--concrete-900);
+        color: var(--concrete-100);
+        line-height: 1.5;
+      }
+
+      /* Concrete texture overlay */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        opacity: 0.03;
+        pointer-events: none;
+        z-index: 1000;
+      }
+
+      /* Concept switcher */
+      .concept-nav {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        display: flex;
+        gap: 4px;
+        padding: 6px;
+        background: var(--concrete-800);
+        border: 2px solid var(--concrete-600);
+      }
+      .concept-nav a {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--concrete-400);
+        background: var(--concrete-900);
+        border: 1px solid var(--concrete-700);
+        transition: all 0.15s;
+      }
+      .concept-nav a:hover {
+        background: var(--concrete-700);
+        color: var(--concrete-100);
+      }
+      .concept-nav a.active {
+        background: var(--warning);
+        color: var(--concrete-900);
+        border-color: var(--warning);
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        padding: 0 48px;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--concrete-900);
+        border-bottom: 3px solid var(--concrete-700);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .logo img {
+        height: 52px;
+        width: auto;
+      }
+
+      nav {
+        display: flex;
+        gap: 48px;
+      }
+
+      nav a {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--concrete-400);
+        text-decoration: none;
+        transition: color 0.2s;
+        position: relative;
+      }
+
+      nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--warning);
+        transition: width 0.2s;
+      }
+
+      nav a:hover { color: var(--concrete-100); }
+      nav a:hover::after { width: 100%; }
+
+      .header-cta {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 14px 28px;
+        background: var(--warning);
+        color: var(--concrete-900);
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .header-cta:hover {
+        background: var(--concrete-100);
+        box-shadow: 4px 4px 0 var(--warning);
+        transform: translate(-2px, -2px);
+      }
+
+      /* Hero */
+      .hero {
+        min-height: 100vh;
+        padding: 160px 48px 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 60px,
+          var(--concrete-800) 60px,
+          var(--concrete-800) 62px
+        );
+        opacity: 0.5;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--warning);
+        margin-bottom: 32px;
+      }
+
+      .hero-label::before {
+        content: '';
+        width: 40px;
+        height: 2px;
+        background: var(--warning);
+      }
+
+      .hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(80px, 12vw, 160px);
+        line-height: 0.85;
+        letter-spacing: -0.02em;
+        color: var(--concrete-100);
+        margin-bottom: 40px;
+      }
+
+      .hero-title span {
+        display: block;
+      }
+
+      .hero-title .outline {
+        -webkit-text-stroke: 2px var(--concrete-400);
+        color: transparent;
+      }
+
+      .hero-title .highlight {
+        color: var(--warning);
+      }
+
+      .hero-desc {
+        font-family: var(--font-body);
+        font-size: 18px;
+        color: var(--concrete-400);
+        max-width: 480px;
+        margin-bottom: 48px;
+        line-height: 1.7;
+      }
+
+      .hero-ctas {
+        display: flex;
+        gap: 16px;
+      }
+
+      .btn-brutalist {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 18px 36px;
+        text-decoration: none;
+        transition: all 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .btn-brutalist.primary {
+        background: var(--warning);
+        color: var(--concrete-900);
+        border: 3px solid var(--warning);
+      }
+
+      .btn-brutalist.primary:hover {
+        background: transparent;
+        color: var(--warning);
+      }
+
+      .btn-brutalist.secondary {
+        background: transparent;
+        color: var(--concrete-100);
+        border: 3px solid var(--concrete-500);
+      }
+
+      .btn-brutalist.secondary:hover {
+        border-color: var(--concrete-100);
+      }
+
+      .hero-visual {
+        position: relative;
+        z-index: 1;
+        aspect-ratio: 1;
+        max-height: 600px;
+      }
+
+      .hero-image-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-image-container::before {
+        content: '';
+        position: absolute;
+        inset: -20px;
+        background: var(--concrete-800);
+        z-index: -1;
+      }
+
+      .hero-image-container::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: -20px;
+        bottom: -20px;
+        border: 3px solid var(--warning);
+        z-index: -2;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%) contrast(1.1);
+        mix-blend-mode: luminosity;
+      }
+
+      .hero-stats {
+        position: absolute;
+        bottom: -40px;
+        left: 0;
+        display: flex;
+        gap: 32px;
+        padding: 24px 32px;
+        background: var(--concrete-900);
+        border: 3px solid var(--concrete-700);
+      }
+
+      .hero-stat {
+        text-align: center;
+      }
+
+      .hero-stat-value {
+        font-family: var(--font-display);
+        font-size: 48px;
+        color: var(--warning);
+        line-height: 1;
+      }
+
+      .hero-stat-label {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--concrete-500);
+        margin-top: 4px;
+      }
+
+      /* Stats bar */
+      .stats-bar {
+        background: var(--concrete-800);
+        border-top: 3px solid var(--concrete-700);
+        border-bottom: 3px solid var(--concrete-700);
+        padding: 48px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 48px;
+      }
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+      }
+
+      .stat-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: -24px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 60px;
+        background: var(--concrete-700);
+      }
+
+      .stat-number {
+        font-family: var(--font-display);
+        font-size: 64px;
+        color: var(--concrete-100);
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--concrete-500);
+        margin-top: 8px;
+      }
+
+      /* Solutions */
+      .solutions {
+        padding: 120px 48px;
+        background: var(--concrete-900);
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 80px;
+        padding-bottom: 40px;
+        border-bottom: 3px solid var(--concrete-700);
+      }
+
+      .section-label {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--warning);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .section-label::before {
+        content: '';
+        width: 24px;
+        height: 2px;
+        background: var(--warning);
+      }
+
+      .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(48px, 8vw, 96px);
+        letter-spacing: -0.01em;
+        color: var(--concrete-100);
+        line-height: 1;
+      }
+
+      .section-number {
+        font-family: var(--font-display);
+        font-size: 120px;
+        color: var(--concrete-800);
+        line-height: 1;
+      }
+
+      .solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3px;
+        background: var(--concrete-700);
+      }
+
+      .solution-card {
+        background: var(--concrete-800);
+        padding: 48px 32px;
+        position: relative;
+        transition: all 0.3s;
+      }
+
+      .solution-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--concrete-600);
+        transition: background 0.3s;
+      }
+
+      .solution-card:hover {
+        background: var(--concrete-700);
+      }
+
+      .solution-card:hover::before {
+        background: var(--warning);
+      }
+
+      .solution-number {
+        font-family: var(--font-display);
+        font-size: 48px;
+        color: var(--concrete-600);
+        margin-bottom: 24px;
+        transition: color 0.3s;
+      }
+
+      .solution-card:hover .solution-number {
+        color: var(--warning);
+      }
+
+      .solution-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--concrete-700);
+        border: 2px solid var(--concrete-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        transition: all 0.3s;
+      }
+
+      .solution-card:hover .solution-icon {
+        background: var(--warning);
+        border-color: var(--warning);
+      }
+
+      .solution-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--concrete-300);
+        transition: stroke 0.3s;
+      }
+
+      .solution-card:hover .solution-icon svg {
+        stroke: var(--concrete-900);
+      }
+
+      .solution-title {
+        font-family: var(--font-display);
+        font-size: 28px;
+        color: var(--concrete-100);
+        margin-bottom: 16px;
+        letter-spacing: 0.02em;
+      }
+
+      .solution-desc {
+        font-size: 14px;
+        color: var(--concrete-400);
+        line-height: 1.7;
+        margin-bottom: 24px;
+      }
+
+      .solution-link {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--concrete-500);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.2s;
+      }
+
+      .solution-link:hover { color: var(--warning); }
+
+      /* Products */
+      .products {
+        padding: 120px 48px;
+        background: var(--concrete-800);
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3px;
+        background: var(--concrete-600);
+        margin-top: 80px;
+      }
+
+      .product-card {
+        background: var(--concrete-900);
+        position: relative;
+        transition: all 0.3s;
+      }
+
+      .product-card:hover {
+        z-index: 2;
+        transform: scale(1.02);
+      }
+
+      .product-image-wrap {
+        aspect-ratio: 4/3;
+        background: linear-gradient(135deg, var(--concrete-800), var(--concrete-700));
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+      }
+
+      .product-image-wrap::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(0,0,0,0.05) 10px,
+          rgba(0,0,0,0.05) 20px
+        );
+      }
+
+      .product-image {
+        max-width: 80%;
+        max-height: 160px;
+        object-fit: contain;
+        position: relative;
+        z-index: 1;
+        transition: transform 0.3s;
+      }
+
+      .product-card:hover .product-image {
+        transform: scale(1.1);
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        background: var(--warning);
+        color: var(--concrete-900);
+      }
+
+      .product-content {
+        padding: 32px;
+        border-top: 3px solid var(--concrete-700);
+      }
+
+      .product-category {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--concrete-500);
+        margin-bottom: 8px;
+      }
+
+      .product-name {
+        font-family: var(--font-display);
+        font-size: 32px;
+        color: var(--concrete-100);
+        margin-bottom: 12px;
+        letter-spacing: 0.02em;
+      }
+
+      .product-desc {
+        font-size: 14px;
+        color: var(--concrete-400);
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+
+      .product-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 24px;
+        border-top: 1px solid var(--concrete-700);
+      }
+
+      .product-price {
+        font-family: var(--font-display);
+        font-size: 36px;
+        color: var(--warning);
+      }
+
+      .product-link {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--concrete-400);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.2s;
+      }
+
+      .product-link:hover { color: var(--warning); }
+
+      /* About */
+      .about {
+        padding: 120px 48px;
+        background: var(--concrete-900);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 120px;
+        align-items: center;
+      }
+
+      .about-visual {
+        position: relative;
+      }
+
+      .about-image {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+        filter: grayscale(100%) contrast(1.1);
+      }
+
+      .about-overlay {
+        position: absolute;
+        bottom: -40px;
+        right: -40px;
+        width: 200px;
+        height: 200px;
+        background: var(--warning);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .about-overlay-value {
+        font-family: var(--font-display);
+        font-size: 72px;
+        color: var(--concrete-900);
+        line-height: 1;
+      }
+
+      .about-overlay-label {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--concrete-900);
+        opacity: 0.7;
+      }
+
+      .about-content .section-title {
+        margin-bottom: 32px;
+      }
+
+      .about-desc {
+        font-size: 18px;
+        color: var(--concrete-400);
+        line-height: 1.8;
+        margin-bottom: 48px;
+      }
+
+      .values-grid {
+        display: grid;
+        gap: 3px;
+        background: var(--concrete-700);
+      }
+
+      .value-item {
+        background: var(--concrete-800);
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition: all 0.2s;
+      }
+
+      .value-item:hover {
+        background: var(--concrete-700);
+      }
+
+      .value-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--concrete-700);
+        border: 2px solid var(--concrete-600);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.2s;
+      }
+
+      .value-item:hover .value-icon {
+        background: var(--warning);
+        border-color: var(--warning);
+      }
+
+      .value-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--concrete-400);
+        transition: stroke 0.2s;
+      }
+
+      .value-item:hover .value-icon svg {
+        stroke: var(--concrete-900);
+      }
+
+      .value-text {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--concrete-200);
+      }
+
+      /* Contact */
+      .contact {
+        padding: 120px 48px;
+        background: var(--concrete-800);
+        text-align: center;
+        position: relative;
+      }
+
+      .contact::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--warning);
+      }
+
+      .contact-title {
+        font-family: var(--font-display);
+        font-size: clamp(48px, 10vw, 120px);
+        color: var(--concrete-100);
+        line-height: 1;
+        margin-bottom: 24px;
+      }
+
+      .contact-title span {
+        color: var(--warning);
+      }
+
+      .contact-desc {
+        font-size: 18px;
+        color: var(--concrete-400);
+        max-width: 500px;
+        margin: 0 auto 48px;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--concrete-900);
+        padding: 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 3px solid var(--concrete-700);
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .footer-logo img {
+        height: 40px;
+        width: auto;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 48px;
+      }
+
+      .footer-links a {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--concrete-500);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover { color: var(--concrete-100); }
+
+      .footer-copy {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--concrete-600);
+      }
+
+      /* Animations */
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-in {
+        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      .delay-1 { animation-delay: 0.1s; opacity: 0; }
+      .delay-2 { animation-delay: 0.2s; opacity: 0; }
+      .delay-3 { animation-delay: 0.3s; opacity: 0; }
+      .delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        header { padding: 0 24px; }
+        nav { display: none; }
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 140px 24px 80px;
+        }
+        .hero-visual { display: none; }
+        .stats-bar { grid-template-columns: repeat(2, 1fr); }
+        .stat-item:not(:last-child)::after { display: none; }
+        .solutions, .products, .about, .contact { padding: 80px 24px; }
+        .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+        .products-grid { grid-template-columns: 1fr; }
+        .about { grid-template-columns: 1fr; gap: 60px; }
+        .about-overlay { right: 0; }
+        footer { flex-direction: column; gap: 24px; text-align: center; }
+      }
+
+      @media (max-width: 640px) {
+        .solutions-grid { grid-template-columns: 1fr; }
+        .hero-ctas { flex-direction: column; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="concept-nav">
+      <a href="/" title="Original">⌂</a>
+      <a href="/concept-1" title="Soft Gradient">1</a>
+      <a href="/concept-2" title="Neon Grid">2</a>
+      <a href="/concept-3" title="Aurora Flow">3</a>
+      <a href="/concept-4" title="Heavy Metal">4</a>
+      <a href="/concept-5" title="Editorial">5</a>
+      <a href="/concept-6" class="active" title="Brutalist">6</a>
+      <a href="/concept-7" title="Blueprint">7</a>
+      <a href="/concept-8" title="Retro">8</a>
+      <a href="/concept-9" title="Swiss">9</a>
+      <a href="/concept-10" title="Kinetic">10</a>
+    </div>
+
+    <header>
+      <a href="/" class="logo">
+        <img src="/images/logo-white.png" alt="Elm Lake Labs" />
+      </a>
+      <nav>
+        <a href="#solutions">Solutions</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="https://store.elmlakelabs.com" class="header-cta" target="_blank">Shop Now</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-label animate-in">Precision Agriculture</div>
+        <h1 class="hero-title animate-in delay-1">
+          <span class="outline">BUILT FOR</span>
+          <span>THE LAND</span>
+          <span class="highlight">THAT FEEDS</span>
+        </h1>
+        <p class="hero-desc animate-in delay-2">
+          Industrial-grade GPS guidance and auto-steer systems engineered for
+          the demands of modern farming. No compromise. No failure.
+        </p>
+        <div class="hero-ctas animate-in delay-3">
+          <a href="#products" class="btn-brutalist primary">
+            View Equipment
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#about" class="btn-brutalist secondary">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-visual animate-in delay-4">
+        <div class="hero-image-container">
+          <img src="/images/hero-field.jpg" alt="Agricultural field" class="hero-image" />
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-value">±1"</div>
+              <div class="hero-stat-label">Accuracy</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-value">24/7</div>
+              <div class="hero-stat-label">Support</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">Farms Equipped</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">±1"</div>
+        <div class="stat-label">RTK Accuracy</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Expert Support</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">15%</div>
+        <div class="stat-label">Fuel Savings</div>
+      </div>
+    </div>
+
+    <section id="solutions" class="solutions">
+      <div class="section-header">
+        <div>
+          <div class="section-label">What We Build</div>
+          <h2 class="section-title">SOLUTIONS</h2>
+        </div>
+        <div class="section-number">01</div>
+      </div>
+
+      <div class="solutions-grid">
+        <div class="solution-card">
+          <div class="solution-number">01</div>
+          <div class="solution-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+            </svg>
+          </div>
+          <h3 class="solution-title">GPS GUIDANCE</h3>
+          <p class="solution-desc">Sub-inch precision that eliminates overlap and enables around-the-clock operation.</p>
+          <a href="#products" class="solution-link">Explore →</a>
+        </div>
+        <div class="solution-card">
+          <div class="solution-number">02</div>
+          <div class="solution-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 9v12"/>
+            </svg>
+          </div>
+          <h3 class="solution-title">LAND LEVELING</h3>
+          <p class="solution-desc">3D GPS-based systems for perfect field grades and maximum water efficiency.</p>
+          <a href="#products" class="solution-link">Explore →</a>
+        </div>
+        <div class="solution-card">
+          <div class="solution-number">03</div>
+          <div class="solution-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="solution-title">EXPERT SUPPORT</h3>
+          <p class="solution-desc">Dedicated specialists who understand your operation inside and out.</p>
+          <a href="#contact" class="solution-link">Contact →</a>
+        </div>
+        <div class="solution-card">
+          <div class="solution-number">04</div>
+          <div class="solution-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <h3 class="solution-title">FARM SOFTWARE</h3>
+          <p class="solution-desc">Blossom: field records, tracking, and analytics unified in one platform.</p>
+          <a href="#products" class="solution-link">Explore →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="products">
+      <div class="section-header">
+        <div>
+          <div class="section-label">Our Equipment</div>
+          <h2 class="section-title">PRODUCTS</h2>
+        </div>
+        <div class="section-number">02</div>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <div class="product-badge">Best Seller</div>
+            <img src="/images/products/at2-autosteer.png" alt="FJD AT2" class="product-image" />
+          </div>
+          <div class="product-content">
+            <div class="product-category">Auto-Steer System</div>
+            <h3 class="product-name">FJD AT2</h3>
+            <p class="product-desc">Advanced auto-steering with centimeter-level accuracy. Universal mount compatibility.</p>
+            <div class="product-footer">
+              <span class="product-price">$7,199</span>
+              <a href="https://store.elmlakelabs.com" class="product-link" target="_blank">Shop →</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="/images/products/al01-land-leveling.png" alt="FJD AL01" class="product-image" />
+          </div>
+          <div class="product-content">
+            <div class="product-category">Land Leveling</div>
+            <h3 class="product-name">FJD AL01 3D</h3>
+            <p class="product-desc">Precision 3D land leveling for perfect field grades and drainage.</p>
+            <div class="product-footer">
+              <span class="product-price">$6,799</span>
+              <a href="https://store.elmlakelabs.com" class="product-link" target="_blank">Shop →</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image-wrap">
+            <img src="/images/products/trion-v1t-rover.png" alt="FJD Trion V1t" class="product-image" />
+          </div>
+          <div class="product-content">
+            <div class="product-category">RTK Rover</div>
+            <h3 class="product-name">FJD TRION V1T</h3>
+            <p class="product-desc">Professional RTK rover for surveying and precision mapping.</p>
+            <div class="product-footer">
+              <span class="product-price">$4,249</span>
+              <a href="https://store.elmlakelabs.com" class="product-link" target="_blank">Shop →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-visual">
+        <img src="/images/hero-field.jpg" alt="Agricultural operation" class="about-image" />
+        <div class="about-overlay">
+          <div class="about-overlay-value">100+</div>
+          <div class="about-overlay-label">Farms Equipped</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">BUILT BY<br/>FARMERS</h2>
+        <p class="about-desc">
+          Elm Lake Labs was founded on a simple principle: farmers deserve
+          technology that works as hard as they do. We bring industrial-grade
+          precision to operations of every scale.
+        </p>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <span class="value-text">Industrial-Grade Innovation</span>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <span class="value-text">Uncompromising Quality</span>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <span class="value-text">24/7 Expert Support</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="contact-title">READY TO <span>BUILD?</span></h2>
+      <p class="contact-desc">
+        Let's discuss how precision technology can transform your operation.
+      </p>
+      <a href="mailto:hello@elmlakelabs.com" class="btn-brutalist primary">
+        Get in Touch
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </section>
+
+    <footer>
+      <a href="/" class="footer-logo">
+        <img src="/images/logo-white.png" alt="Elm Lake Labs" />
+      </a>
+      <div class="footer-links">
+        <a href="#solutions">Solutions</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://store.elmlakelabs.com" target="_blank">Shop</a>
+      </div>
+      <span class="footer-copy">© 2024 Elm Lake Labs</span>
+    </footer>
+  </body>
+</html>
