@@ -46,8 +46,9 @@ const { currentPath = '/' } = Astro.props;
 </header>
 
 <!-- Mobile Menu -->
-<div class="mobile-menu hidden fixed top-[72px] left-0 right-0 bg-[var(--bg-secondary)]/95 backdrop-blur-xl border-b border-[var(--border-subtle)] z-50 transform -translate-y-full opacity-0 transition-all duration-300">
-  <div class="flex flex-col p-8">
+<div class="mobile-menu fixed inset-0 z-50 transition-all duration-300 md:hidden invisible opacity-0">
+  <div class="absolute inset-0 bg-[var(--bg-primary)]"></div>
+  <div class="relative flex flex-col p-8 pt-28">
     <a href="#solutions" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)] transition-colors">Solutions</a>
     <a href="#products" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)] transition-colors">Products</a>
     <a href="#software" class="mobile-link py-4 text-lg text-[var(--text-secondary)] border-b border-[var(--border-subtle)] hover:text-[var(--text-primary)] transition-colors">Software</a>
@@ -94,8 +95,7 @@ const { currentPath = '/' } = Astro.props;
   }
 
   .mobile-menu.active {
-    display: block;
-    transform: translateY(0);
+    visibility: visible;
     opacity: 1;
   }
 </style>
