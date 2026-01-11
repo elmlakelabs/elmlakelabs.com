@@ -370,6 +370,7 @@ button:focus-visible {
   mask-composite: exclude;
   opacity: 0;
   transition: opacity var(--transition-base);
+  pointer-events: none;
 }
 
 .card:hover {
