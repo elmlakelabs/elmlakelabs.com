@@ -6,7 +6,8 @@ const featuredProduct = {
   description: 'Advanced auto-steering with centimeter-level accuracy. Compatible with most tractors and implements. Easy installation and intuitive operation.',
   specs: ['±1in Pass-to-Pass', 'RTK/CORS Ready', 'Universal Mount'],
   price: '$7,199',
-  image: '/images/products/at2-autosteer.png'
+  image: '/images/products/at2-autosteer.png',
+  url: 'https://store.elmlakelabs.com/products/fjd-at2-auto-steer-system'
 };
 
 const products = [
@@ -15,21 +16,24 @@ const products = [
     name: 'FJD AL01 3D System',
     description: 'Precision 3D land leveling for perfect field grades.',
     price: '$6,799',
-    image: '/images/products/al01-land-leveling.png'
+    image: '/images/products/al01-land-leveling.png',
+    url: 'https://store.elmlakelabs.com/products/fjd-al01-3d-land-leveling-system'
   },
   {
     category: 'RTK Rover',
     name: 'FJD Trion V1t',
     description: 'Professional RTK rover for surveying and mapping.',
     price: '$4,249',
-    image: '/images/products/trion-v1t-rover.png'
+    image: '/images/products/trion-v1t-rover.png',
+    url: 'https://store.elmlakelabs.com/products/fjd-trion-v1t-rtk-rover'
   },
   {
     category: 'Dozer System',
     name: 'FJD H39 3D',
     description: 'Complete 3D machine control for dozers.',
     price: 'From $29,999',
-    image: '/images/products/h39-dozer.png'
+    image: '/images/products/h39-dozer.png',
+    url: 'https://store.elmlakelabs.com/products/fjd-h39-3d-dozer-electronic-control-system'
   }
 ];
 ---
@@ -167,7 +171,7 @@ const products = [
 
         <div class="flex items-center justify-between gap-4 pt-6 border-t border-[var(--border-subtle)]">
           <span class="font-display text-3xl gradient-text">{featuredProduct.price}</span>
-          <a href="https://store.elmlakelabs.com" class="btn btn-primary btn-sm" target="_blank">
+          <a href={featuredProduct.url} class="btn btn-primary btn-sm" target="_blank">
             Shop Now
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M7 17L17 7M17 7H7M17 7V17"/>
@@ -196,7 +200,7 @@ const products = [
 
           <div class="flex items-center justify-between pt-4 border-t border-[var(--border-subtle)]">
             <span class="font-display text-lg gradient-text">{product.price}</span>
-            <a href="https://store.elmlakelabs.com" class="text-sm text-[var(--brand-magenta)] hover:text-[var(--brand-purple)] transition-colors flex items-center gap-1" target="_blank">
+            <a href={product.url} class="text-sm text-[var(--brand-magenta)] hover:text-[var(--brand-purple)] transition-colors flex items-center gap-1" target="_blank">
               View
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
